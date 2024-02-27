@@ -26,7 +26,7 @@ const Page = () => {
             LOOKUP {/* Liên kết tới trang Lookup */}
           </button>
         </Link>
-        <Link href="/Exit">
+        <Link href="/">
           <button className="bg-blue-500 text-white text-4xl py-4 px-6 w-full h-40 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
             EXIT {/* Liên kết tới trang Exit */}
           </button>
