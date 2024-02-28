@@ -1,4 +1,20 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  env: {
+    selected: 1,
+    vietnam: "VUI LÒNG CHỌN LỰA CHỌN",
+    english: "PLEASE SELECT THE OPTION",
+  },
+};
 
-export default nextConfig;
+const changeSelectedValue = (newValue) => {
+  return {
+    ...nextConfig,
+    env: {
+      ...nextConfig.env,
+      selected: newValue,
+    },
+  };
+};
+
+export { nextConfig, changeSelectedValue };
