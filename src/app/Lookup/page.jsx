@@ -1,7 +1,41 @@
 import React from 'react';
-import FlexiPlaneIcon from './FlexiPlaneIcon.svg';
+
+let jsonData = {
+  "chuyen_bay": {
+    "khoi_hanh": {
+      "ngay": "Thứ tư, ngày 18 tháng 8",
+      "thoi_gian": "18:25",
+      "thanh_pho": "Harare",
+      "thanh_pho_short_name": "HRE",
+      "quoc_gia": "Zimbabwe"
+    },
+    "den": {
+      "thoi_gian": "19:25",
+      "thanh_pho": "Lusaka",
+      "thanh_pho_short_name": "LUN",
+      "quoc_gia": "Zambia"
+    },
+    "hang_hang_khong": {
+      "ten": "Qatar Airways",
+      "ma_so_chuyen_bay": "QR1456"
+    },
+    "chi_tiet_them": {
+      "hang_ghe": "Thuong gia",
+      "muc_luong_hanh_ly": "2*23kg (2 kiện ký gửi, mỗi kiện 23kg)",
+      "lua_chon_ve": {
+        "Ve_tieu_chuan": {
+          "gia": "404.73 USD/người lớn"
+        },
+        "Ve_linh_hoat": {
+          "gia": "605.43 USD/người lớn"
+        }
+      }
+    }
+  }
+}
 
 const Page = () => {
+  const data = jsonData.chuyen_bay; 
   return (
     <div className="p-10">
       <div className="max-w-full  bg-white flex flex-col rounded overflow-hidden shadow-lg">
@@ -22,7 +56,7 @@ const Page = () => {
             <path d="M43.389 38.269L29.222 61.34a1.152 1.152 0 01-1.064.615H20.99a1.219 1.219 0 01-1.007-.5 1.324 1.324 0 01-.2-1.149L26.2 38.27H11.7l-3.947 6.919a1.209 1.209 0 01-1.092.644H1.285a1.234 1.234 0 01-.895-.392l-.057-.056a1.427 1.427 0 01-.308-1.036L1.789 32 .025 19.656a1.182 1.182 0 01.281-1.009 1.356 1.356 0 01.951-.448l5.4-.027a1.227 1.227 0 01.9.391.85.85 0 01.2.252L11.7 25.73h14.5L19.792 3.7a1.324 1.324 0 01.2-1.149A1.219 1.219 0 0121 2.045h7.168a1.152 1.152 0 011.064.615l14.162 23.071h8.959a17.287 17.287 0 017.839 1.791Q63.777 29.315 64 32q-.224 2.685-3.807 4.478a17.282 17.282 0 01-7.84 1.793h-9.016z" />
           </svg>
           <h1 className="ml-2 uppercase font-bold text-gray-500">departure</h1>
-          <p className="ml-2 font-normal text-gray-500">Wednesday 18 Aug</p>
+          <p className="ml-2 font-normal text-gray-500">{data.khoi_hanh.thoi_gian + " " + data.khoi_hanh.ngay}</p>
         </div>
         <div className="mt-2 flex justify-start bg-white p-2">
           <div className="flex mx-2 ml-6 h8 px-2 flex-row items-baseline rounded-full bg-gray-100 p-1">
@@ -36,7 +70,7 @@ const Page = () => {
             >
               <path d="M43.389 38.269L29.222 61.34a1.152 1.152 0 01-1.064.615H20.99a1.219 1.219 0 01-1.007-.5 1.324 1.324 0 01-.2-1.149L26.2 38.27H11.7l-3.947 6.919a1.209 1.209 0 01-1.092.644H1.285a1.234 1.234 0 01-.895-.392l-.057-.056a1.427 1.427 0 01-.308-1.036L1.789 32 .025 19.656a1.182 1.182 0 01.281-1.009 1.356 1.356 0 01.951-.448l5.4-.027a1.227 1.227 0 01.9.391.85.85 0 01.2.252L11.7 25.73h14.5L19.792 3.7a1.324 1.324 0 01.2-1.149A1.219 1.219 0 0121 2.045h7.168a1.152 1.152 0 011.064.615l14.162 23.071h8.959a17.287 17.287 0 017.839 1.791Q63.777 29.315 64 32q-.224 2.685-3.807 4.478a17.282 17.282 0 01-7.84 1.793h-9.016z" />
             </svg>
-            <p className="font-normal text-sm ml-1 text-gray-500">Economy</p>
+            <p className="font-normal text-sm ml-1 text-gray-500">{data.chi_tiet_them.hang_ghe}</p>
           </div>
         </div>
         <div className="mt-2 flex sm:flex-row mx-6 sm:justify-between flex-wrap ">
@@ -52,24 +86,24 @@ const Page = () => {
               }}
             />
             <div className="flex flex-col ml-2">
-              <p className="text-xs text-gray-500 font-bold">Qatar Airways</p>
-              <p className="text-xs text-gray-500">QR1456</p>
-              <div className="text-xs text-gray-500">2*23kg</div>
+              <p className="text-xs text-gray-500 font-bold">{data.hang_hang_khong.ten}</p>
+              <p className="text-xs text-gray-500">{data.hang_hang_khong.ma_so_chuyen_bay}</p>
+              <div className="text-xs text-gray-500">{data.chi_tiet_them.muc_luong_hanh_ly}</div>
             </div>
           </div>
           <div className="flex flex-col p-2">
-            <p className="font-bold">18:25</p>
+            <p className="font-bold">{data.khoi_hanh.thoi_gian}</p>
             <p className="text-gray-500">
-              <span className="font-bold">HRE</span> Harare
+              <span className="font-bold">{data.khoi_hanh.thanh_pho_short_name}</span> {data.khoi_hanh.thanh_pho}
             </p>
             <p className="text-gray-500">Zimbabwe</p>
           </div>
           <div className="flex flex-col flex-wrap p-2">
-            <p className="font-bold">19:25</p>
+            <p className="font-bold">{data.den.thoi_gian}</p>
             <p className="text-gray-500">
-              <span className="font-bold">LUN</span> Lusaka
+              <span className="font-bold">{data.den.thanh_pho_short_name}</span> {data.den.thanh_pho}
             </p>
-            <p className="text-gray-500">Zambia</p>
+            <p className="text-gray-500">{data.den.quoc_gia}</p>
           </div>
         </div>
         <div className="mt-4 bg-gray-100 flex flex-row flex-wrap md:flex-nowrap justify-between items-baseline">
