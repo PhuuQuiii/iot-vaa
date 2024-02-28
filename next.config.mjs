@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+// import { i18n } from './i18n.config';
 const nextConfig = {
   env: {
     selected: 1,

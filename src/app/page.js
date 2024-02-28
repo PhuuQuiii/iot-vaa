@@ -2,14 +2,17 @@
 import Link from "next/link";
 import { useState } from "react";
 import { changeSelectedValue } from "../../next.config.mjs";
+import useTrans from './hooks/useTrans';
+
 
 export default function Home() {
+  const trans = useTrans()
   return (
     <div className="flex flex-col justify-center items-center h-screen">
-      <h1 className="text-center text-8xl mb-4">XIN CHÀO</h1>
-      <h2 className="text-center text-8xl mb-16">WELCOME</h2>
-      <p className="text-center text-4xl mb-4">VUI LÒNG LỰA CHỌN NGÔN NGỮ</p>
-      <p className="text-center text-4xl mb-16">PLEASE SELECT YOUR LANGUAGE</p>
+      <h1 className="text-center text-8xl mb-4">{ trans.home.title }</h1>
+      {/* <h2 className="text-center text-8xl mb-16">WELCOME</h2> */}
+      <p className="text-center text-4xl mb-4">{ trans.home.content }</p>
+      {/* <p className="text-center text-4xl mb-16">PLEASE SELECT YOUR LANGUAGE</p> */}
       <div className="grid grid-cols-3 gap-4 w-2/3">
         <Link href="/Home">
           <button
