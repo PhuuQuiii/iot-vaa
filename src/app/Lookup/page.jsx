@@ -1,5 +1,4 @@
 import React from 'react';
-import FlexiPlaneIcon from './FlexiPlaneIcon.svg';
 
 const Page = () => {
   return (
